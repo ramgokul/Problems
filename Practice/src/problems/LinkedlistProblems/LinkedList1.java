@@ -47,7 +47,12 @@ public class LinkedList1 {
     public void deleteNode(int key){
         Node temp = head; Node prev = null;
 
-        if (temp != null && temp.data == key){
+        if (temp.data == key){
+
+            if (temp.next == null){
+                System.out.println("There is only one element in the list");
+                return;
+            }
             head = temp.next; //Changed head
             return;
         }
@@ -211,7 +216,7 @@ public class LinkedList1 {
             if (slow == fast){
                 System.out.println("loop found");
                 countNodesInALoop(slow);
-                removeLoop(fast);
+                removeLoop(node, fast);
                 return true;
             }
         }
@@ -229,8 +234,14 @@ public class LinkedList1 {
         System.out.println("Number of nodes in loop : "+res);
     }
 
-    public void removeLoop(Node fast){
+    public void removeLoop(Node node, Node fast){
+
+        while (node.next != fast.next){
+            node = node.next;
+            fast = fast.next;
+        }
         fast.next = null;
+
     }
 
     public Node reverseLinkedList(Node node){
