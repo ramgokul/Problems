@@ -1,4 +1,4 @@
-package com.company;
+package problems.LinkedlistProblems;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -626,6 +626,120 @@ public class segregateEvenOdd {
         head = dummy.next;
     }
 
+    void moveAllOccurencesToEnd(Node node, int key){
+        Node current = node;
+        Node matchKeyStart = null, matchKeyEnd = null, notMatchKeyStart = null, notMatchKeyEnd = null;
+
+        while (current != null){
+
+            if (current.data == key){
+
+                if (matchKeyStart == null){
+                    matchKeyStart = current;
+                    matchKeyEnd = matchKeyStart;
+                }else {
+                    matchKeyStart.next = current;
+                    matchKeyEnd = matchKeyEnd.next;
+                }
+            }else {
+
+                if (notMatchKeyStart == null){
+                    notMatchKeyStart = current;
+                    notMatchKeyEnd = notMatchKeyStart;
+                }else {
+                    notMatchKeyEnd.next = current;
+                    notMatchKeyEnd = notMatchKeyEnd.next;
+                }
+            }
+
+            current = current.next;
+        }
+
+        notMatchKeyEnd.next = matchKeyStart;
+        matchKeyEnd.next = null;
+        head = notMatchKeyStart;
+    }
+
+    void swapNodes(Node start, int x, int y){
+
+        if (x == y){
+            return;
+        }
+
+        Node prevX = null, currX = start;
+        while (currX != null && currX.data != x){
+            prevX = currX;
+            currX = currX.next;
+        }
+
+        Node prevY = null, currY = start;
+        while (currY != null && currY.data != y){
+            prevY = currY;
+            currY = currY.next;
+        }
+
+        if (currX == null || currY == null){
+            return;
+        }
+
+
+        if (prevX == null){
+            head = prevY;
+        }else {
+            prevX.next = currY;
+        }
+
+        if (prevY == null){
+            head = prevX;
+        }else {
+            prevY.next = currX;
+        }
+
+        Node temp = currX.next;
+        currX.next = currY.next;
+        currY.next = temp;
+
+        print(head);
+
+//        return head;
+
+    }
+
+    void rearrangeInZigzag(Node node){
+        boolean flag = true;
+        Node current = node;
+
+        while (current.next != null){
+
+            if (flag){
+
+                if (current.data > current.next.data){
+                    int temp = current.data;
+                    current.data = current.next.data;
+                    current.next.data = temp;
+                }
+
+            }else {
+
+                if (current.data < current.next.data){
+                    int temp = current.data;
+                    current.data = current.next.data;
+                    current.next.data = temp;
+                }
+
+            }
+            current = current.next;
+            flag = !flag;
+
+        }
+    }
+
+    void swaps(Node a, Node b){
+        Node temp = a;
+        a = b;
+        b = temp;
+    }
+
 
     public void print(){
         Node n = head;
@@ -649,14 +763,20 @@ public class segregateEvenOdd {
 
     public static void main(String[] args) {
         segregateEvenOdd sg1 = new segregateEvenOdd();
-        sg1.head = new Node(5);
-        sg1.push(5);
+        sg1.head = new Node(1);
+        sg1.push(2);
+        sg1.push(6);
+        sg1.push(8);
+        sg1.push(7);
+        sg1.push(3);
         sg1.push(4);
-        sg1.push(4);
-        sg1.push(1);
         sg1.print();
-        sg1.deleteAllDuplicates(sg1.head);
+        sg1.rearrangeInZigzag(sg1.head);
         sg1.print();
+//        sg1.swapNodes(sg1.head, 4, 5);
+//        sg1.moveAllOccurencesToEnd(sg1.head, 2);
+//        sg1.deleteAllDuplicates(sg1.head);
+//        sg1.print();
 //
 //        segregateEvenOdd sg2 = new segregateEvenOdd();
 //        sg2.head = new Node(10);
