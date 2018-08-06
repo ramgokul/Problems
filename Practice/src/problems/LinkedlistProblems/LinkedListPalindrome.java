@@ -38,28 +38,77 @@ public class LinkedListPalindrome {
         }
     }
 
-    boolean isPalindromeUtil(Node right)
-    {
-        left = head;
+    public void printList(Node node){
+        Node n = node;
 
-        /* stop recursion when right becomes NULL */
-        if (right == null)
-            return true;
-
-        /* If sub-list is not palindrome then no need to
-           check for current left and right, return false */
-        boolean isp = isPalindromeUtil(right.next);
-        if (isp == false)
-            return false;
-
-        /* Check values at current left and right */
-        boolean isp1 = (right.data == (left).data);
-
-        /* Move left to next node */
-        left = left.next;
-
-        return isp1;
+        while (n != null){
+            System.out.println(n.data + " ");
+            n = n.next;
+        }
     }
+
+    void isPalindromeUtil(Node node)
+    {
+        Node p = node, q = node, new_s = null;
+
+        while (true){
+            q = q.next.next;
+            if (q.next == null){
+                 new_s = p.next.next;
+                break;
+            }else if (q == null){
+                 new_s = p.next;
+                break;
+            }
+            p = p.next;
+        }
+        p.next = null;
+        Node rev_s = reverseLinkedList(new_s);
+        if (compareLists(node, rev_s)){
+            System.out.println("palindrome");
+        }else {
+            System.out.println("Not a palindrome");
+        }
+    }
+
+
+
+    Node reverseLinkedList(Node node){
+        Node current = node, prev = null, next = null;
+
+        while (current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        return prev;
+    }
+
+    boolean compareLists(Node n1, Node n2){
+        boolean isEqual = true;
+
+        if (n1 == null && n2 == null){
+            isEqual = true;
+            return isEqual;
+        }
+
+        while (n1 != null && n2 != null){
+
+            if (n1.data == n2.data){
+                n1 = n1.next;
+                n2 = n2.next;
+            }else {
+                isEqual =  false;
+                break;
+            }
+
+        }
+        return isEqual;
+    }
+
+
 
     public static void main(String[] args) {
         LinkedListPalindrome list = new LinkedListPalindrome();
@@ -70,7 +119,8 @@ public class LinkedListPalindrome {
         list.insertAfter(list.head.next.next.next, 'c');
         list.insertAfter(list.head.next.next.next.next, 'b');
         list.insertAfter(list.head.next.next.next.next.next, 'a');
-        list.printList();
-        System.out.println(list.isPalindromeUtil(list.head));
+//        list.printList();
+        list.isPalindromeUtil(list.head);
+//        System.out.println(list.isPalindromeUtil(list.head));
     }
 }

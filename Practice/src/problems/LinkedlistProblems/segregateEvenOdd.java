@@ -51,41 +51,6 @@ public class segregateEvenOdd {
     }
 
 
-    public Node evenOdd(Node node){
-        Node evenStart = null, evenEnd = null, oddStart = null, oddEnd = null;
-        Node current = node;
-
-        while (current != null){
-            int element = current.data;
-
-            if (element % 2 == 0){
-
-                if (evenStart == null){
-                    evenStart = current;
-                    evenEnd = evenStart;
-                }else {
-                    evenStart.next = current;
-                    evenEnd = evenEnd.next;
-                }
-
-            }else {
-
-                if (oddStart == null){
-                    oddStart = current;
-                    oddEnd = oddStart;
-                }else {
-                    oddEnd.next = current;
-                    oddEnd = oddEnd.next;
-                }
-            }
-            current = current.next;
-        }
-        evenEnd.next = oddStart;
-        oddEnd.next = null;
-        head = evenStart;
-        return evenStart;
-    }
-
     public void splitListAlternate(Node node){
         Node current = node;
         headA = current;
@@ -131,6 +96,41 @@ public class segregateEvenOdd {
         }
 
         return sg2;
+    }
+
+    public Node evenOdd(Node node){
+        Node evenStart = null, evenEnd = null, oddStart = null, oddEnd = null;
+        Node current = node;
+
+        while (current != null){
+            int element = current.data;
+
+            if (element % 2 == 0){
+
+                if (evenStart == null){
+                    evenStart = current;
+                    evenEnd = evenStart;
+                }else {
+                    evenStart.next = current;
+                    evenEnd = evenEnd.next;
+                }
+
+            }else {
+
+                if (oddStart == null){
+                    oddStart = current;
+                    oddEnd = oddStart;
+                }else {
+                    oddEnd.next = current;
+                    oddEnd = oddEnd.next;
+                }
+            }
+            current = current.next;
+        }
+        evenEnd.next = oddStart;
+        oddEnd.next = null;
+        head = evenStart;
+        return evenStart;
     }
 
     public Node reverseLinkedList(Node node){
@@ -740,6 +740,27 @@ public class segregateEvenOdd {
         b = temp;
     }
 
+    void subtractTwoNumbers(Node n1, Node n2){
+        Node p = n1, q = n2;
+        int num1 = 0, num2 = 0;
+
+        while (n1 != null){
+            num1 = (num1 * 10) + n1.data;
+
+            n1 = n1.next;
+        }
+
+        while (n2 != null){
+            num2 = (num2 * 10) + n2.data;
+
+            n2 = n2.next;
+        }
+
+        System.out.println("Difference : "+(num1 - num2));
+    }
+
+
+
 
     public void print(){
         Node n = head;
@@ -763,23 +784,31 @@ public class segregateEvenOdd {
 
     public static void main(String[] args) {
         segregateEvenOdd sg1 = new segregateEvenOdd();
-        sg1.head = new Node(1);
-        sg1.push(2);
-        sg1.push(6);
-        sg1.push(8);
-        sg1.push(7);
-        sg1.push(3);
+        sg1.head = new Node(3);
+//        sg1.push(2);
+//        sg1.push(5);
+        sg1.push(10);
+        sg1.push(20);
         sg1.push(4);
+        sg1.push(10);
         sg1.print();
-        sg1.rearrangeInZigzag(sg1.head);
-        sg1.print();
+//        Node t = sg1.partitionListAroundAGivenValue(sg1.head, 3);
+//        sg1.print(t);
+//        Node s = sg1.partitionListAroundAGivenValue(sg1.head, 3);
+//        sg1.print(s);
+
+//        sg1.rearrangeInZigzag(sg1.head);
+//        sg1.print();
 //        sg1.swapNodes(sg1.head, 4, 5);
 //        sg1.moveAllOccurencesToEnd(sg1.head, 2);
 //        sg1.deleteAllDuplicates(sg1.head);
 //        sg1.print();
 //
 //        segregateEvenOdd sg2 = new segregateEvenOdd();
-//        sg2.head = new Node(10);
+//        sg2.head = new Node(1);
+//        sg2.print();
+//
+//        sg1.subtractTwoNumbers(sg1.head, sg2.head);
 //        sg2.push(9);
 //        sg2.push(8);
 //        sg2.push(7);
