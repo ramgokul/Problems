@@ -164,6 +164,33 @@ public class LL5 {
         return lessthanStart;
     }
 
+    void findSmallestNLargestElementInList(Node node){
+        Node current = node;
+        int max = Integer.MIN_VALUE;
+
+        while (current != null){
+            if (max < current.data){
+                max = current.data;
+            }
+            current = current.next;
+        }
+
+        System.out.println("Max element : "+max);
+
+        int min = Integer.MAX_VALUE;
+        current = node;
+        
+        while (current != null){
+            if (min > current.data){
+                min = current.data;
+            }
+            current = current.next;
+        }
+
+        System.out.println("Min element : "+min);
+
+    }
+
     public void print(){
         Node n = head;
 
@@ -193,10 +220,11 @@ public class LL5 {
         list1.push(4);
         list1.push(10);
         list1.print();
+        list1.findSmallestNLargestElementInList(list1.head);
 //        Node rock = list1.partitionListAroundAGivenValue(list1.head, 3);
-        list1.evenOdd(list1.head);
+//        list1.evenOdd(list1.head);
 //        list1.print(rock);
-        list1.print();
+//        list1.print();
     }
 
 
