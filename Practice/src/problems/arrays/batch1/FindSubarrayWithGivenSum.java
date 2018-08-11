@@ -24,7 +24,7 @@ public class FindSubarrayWithGivenSum {
         int arr[] = {15, 2, 4, 8, 9, 5, 10, 23};
         int n = arr.length;
         int sum = 23;
-        arraySum(arr, n, sum);
+        arraySum2(arr, n, sum);
     }
 
     public static int arraySum(int[] A, int n, int sum){
@@ -49,6 +49,31 @@ public class FindSubarrayWithGivenSum {
         }
 
         System.out.println("No sub-array found");
+        return 0;
+    }
+
+    public static int arraySum2(int[] A, int n, int sum){
+        int curr_sum = 0, start = 0, end = 0;
+
+        while (end < n){
+
+            while (curr_sum < sum && end < n){
+                curr_sum += A[end];
+                end++;
+            }
+
+            if (curr_sum == sum){
+                System.out.println("sub array found "+start+ "  and "+end);
+                return 1;
+            }
+
+            while (curr_sum > sum && start < n){
+                curr_sum -= A[start];
+                start++;
+            }
+        }
+
+        System.out.println("No subarray found");
         return 0;
     }
 }
