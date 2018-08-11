@@ -179,7 +179,7 @@ public class LL5 {
 
         int min = Integer.MAX_VALUE;
         current = node;
-        
+
         while (current != null){
             if (min > current.data){
                 min = current.data;
