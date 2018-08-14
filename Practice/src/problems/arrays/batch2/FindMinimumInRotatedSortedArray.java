@@ -3,8 +3,9 @@ package problems.arrays.batch2;
 public class FindMinimumInRotatedSortedArray {
 
     public static void main(String[] args) {
-        int[] nums = {4,5,6,7,0,1,2};
+        int[] nums = {5, 6, 1, 2, 3, 4};
         System.out.println(returnMinimum(nums));;
+//        returnMin(nums);
     }
 
     public static int returnMinimum(int[] nums){
@@ -12,7 +13,7 @@ public class FindMinimumInRotatedSortedArray {
 
         int left = 0, right = nums.length - 1;
         while (left <= right) {
-            int mid = (left + right) / 2;
+            int mid = left + (right - left)/2;
 
             if (nums[right] < nums[mid])
                 left = mid + 1;
@@ -25,5 +26,18 @@ public class FindMinimumInRotatedSortedArray {
         }
 
         return min;
+    }
+
+    static void returnMin(int[] nums){
+
+        for (int i=0; i<nums.length-1; i++){
+
+            if (nums[i] > nums[i+1]){
+                System.out.println("Mimimum element : "+nums[i+1]);
+                return;
+            }
+        }
+
+        System.out.println("No min element found");
     }
 }

@@ -3,8 +3,8 @@ package problems.arrays.batch2;
 public class FindRotationCountInRotatedSortedArray {
 
     public static void main(String[] args) {
-//        int[] nums = {15, 18, 2, 3, 6, 12};
-        int[] nums = {7, 9, 11, 12, 15};
+        int[] nums = {15, 18, 2, 3, 6, 12};
+//        int[] nums = {7, 9, 11, 12, 15};
         returnRotationCount(nums);
     }
 
@@ -13,7 +13,7 @@ public class FindRotationCountInRotatedSortedArray {
         int right = nums.length - 1;
 
         while (left <= right){
-            int mid = (left + right) / 2;
+            int mid = left + (right - left)/2;
 
             if (nums[right] < nums[mid]){
                 left = mid + 1;

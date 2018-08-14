@@ -36,16 +36,16 @@ public class kNumbersWithMostOccurences {
             map.put(n, map.getOrDefault(n, 0)+1);
         }
 
-//        map.entrySet().stream().sorted(Map.Entry.<Integer,Integer>comparingByValue().reversed()).limit(k).forEach(System.out::println);
+        map.entrySet().stream().sorted(Map.Entry.<Integer,Integer>comparingByValue().reversed()).limit(k).forEach(System.out::println);
 
-        List<Integer> list = new ArrayList<>();
-        list.add(10);
-        list.add(20);
-        list.add(10);
-        list.add(20);
-
-        Set<Integer> set = list.stream().map(x->x*76).distinct().sorted().collect(Collectors.toSet());
-        System.out.println(set);
+//        List<Integer> list = new ArrayList<>();
+//        list.add(10);
+//        list.add(20);
+//        list.add(10);
+//        list.add(20);
+//
+//        Set<Integer> set = list.stream().map(x->x*76).distinct().sorted().collect(Collectors.toSet());
+//        System.out.println(set);
 
 //        map.entrySet().stream()
 //                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
