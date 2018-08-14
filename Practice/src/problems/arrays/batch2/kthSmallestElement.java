@@ -7,20 +7,23 @@ public class kthSmallestElement {
 
     public static void main(String[] args) {
         int arr[] = {7, 10, 4, 3, 20, 15};
-        int k =2;
-        returnSmallest(arr,2);
+        int k =3;
+        returnSmallest(arr,k);
     }
 
     public static void returnSmallest(int[] arr, int k){
         Arrays.sort(arr);
-//        return  arr[arr.length-k-1];
-        for (int i=0; i<=k-1; i++){
-            System.out.print(arr[i]+" ");
-        }
+        System.out.println(Arrays.toString(arr));
 
-        for (int j=arr.length-k; j<arr.length; j++){
-            System.out.print(arr[j]+" ");
-        }
+        System.out.println(""+k+ "th largest element : "+ arr[k-1]);
+        System.out.println(""+k+ "th largest element : "+ arr[arr.length-k]);
+//        for (int i=0; i<=k-1; i++){
+//            System.out.print(arr[i]+" ");
+//        }
+//
+//        for (int j=arr.length-k; j<arr.length; j++){
+//            System.out.print(arr[j]+" ");
+//        }
     }
 
     public static int returnSmallest2(int[] arr, int k){
