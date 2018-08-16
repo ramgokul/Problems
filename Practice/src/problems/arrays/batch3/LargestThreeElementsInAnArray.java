@@ -3,9 +3,10 @@ package problems.arrays.batch3;
 public class LargestThreeElementsInAnArray {
     public static void main(String[] args) {
         int[] arr = {10, 4, 3, 50, 23, 90};
-        findElements2(arr,3);
+        findElements(arr,3);
     }
 
+    /* Three largest elements in an array */
     public static void findElements(int[] nums, int k){
         int first = Integer.MIN_VALUE;
         int second = first, third = first;
@@ -33,6 +34,8 @@ public class LargestThreeElementsInAnArray {
 
     }
 
+
+    /* Three smallest elements in an array */
     public static void findElements2(int[] nums, int k){
         int first = Integer.MAX_VALUE;
         int second = first, third = first;
