@@ -20,13 +20,13 @@ public class IsLLCircular {
             return true;
         }
 
-        Node current = head.next;
+        Node current = head;
 
-        while (current != null && current != head){
+        while (current.next != null && current.next != head){
             current = current.next;
         }
 
-        return (current == head);
+        return (current.next == head);
     }
 
     public static void main(String[] args) {
