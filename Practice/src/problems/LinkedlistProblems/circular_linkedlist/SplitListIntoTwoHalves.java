@@ -35,7 +35,7 @@ public class SplitListIntoTwoHalves {
 
         head1 = head;
         Node temp = slow.next;
-        slow.next = head;
+        slow.next = head1;
 
         fast.next = temp;
         head2 = temp;
