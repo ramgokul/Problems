@@ -26,6 +26,11 @@ public class DeleteNodeFromCircular {
 
         if (start.data == key){
 
+            if (start.next == start){
+                System.out.println("There is only one element in the linked list");
+                return;
+            }
+
             while (ptr.next != start){
                 ptr = ptr.next;
             }
@@ -68,7 +73,7 @@ public class DeleteNodeFromCircular {
         d.head.next.next = new Node(15);
         d.head.next.next.next = d.head;
         d.printList();
-        d.delete_node(5);
+        d.delete_node(10);
         d.printList();
     }
 }

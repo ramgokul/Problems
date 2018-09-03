@@ -20,7 +20,7 @@ public class ThreeSumSmaller {
 
             while (start < end) {
                 if (nums[i] + nums[start] + nums[end] < target) {
-//                    System.out.println(""+nums[i]+","+nums[start]+","+nums[end]);
+                    System.out.println(""+nums[i]+","+nums[start]+","+nums[end]);
                     count += end - start;
                     start++;
                 } else {

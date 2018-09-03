@@ -20,7 +20,7 @@ public class FindFloorAndCeilingOfArray {
         int[] arr = {1, 2, 8, 10, 10, 12, 19};
         int n = arr.length - 1;
 //        System.out.println(findCeiling(arr,0, n, 5));
-        System.out.println(findFloor(arr, 0, n, 0));
+        System.out.println(findFloor(arr, 0, n, 5));
     }
 
     public static int findCeiling(int[] a, int low, int high, int x){
