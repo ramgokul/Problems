@@ -54,7 +54,7 @@ public class QuadruplesWhoseSumIsEqualToX {
                 int p_sum = x - sum2;
 
                 if (map1.containsKey(p_sum)){
-                    System.out.println(""+arr3[k]+ ","+arr4[k]+ ","+map1.get(p_sum).getKey()+ ","+map1.get(p_sum).getValue());
+                    System.out.println(""+arr3[k]+ ","+arr4[l]+ ","+map1.get(p_sum).getKey()+ ","+map1.get(p_sum).getValue());
                 }
             }
         }

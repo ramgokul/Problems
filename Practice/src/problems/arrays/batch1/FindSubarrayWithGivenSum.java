@@ -1,5 +1,8 @@
 package problems.arrays.batch1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FindSubarrayWithGivenSum {
 
     /*
@@ -21,10 +24,12 @@ public class FindSubarrayWithGivenSum {
      */
 
     public static void main(String[] args) {
-        int arr[] = {15, 2, 4, 8, 9, 5, 10, 23};
+//        int arr[] = {15, 2, 4, 8, 9, 5, 10, 23};
+        int arr[] = { 10, 2, -2, -20, 10 };
         int n = arr.length;
-        int sum = 23;
-        arraySum2(arr, n, sum);
+//        int sum = 23;
+        int sum = -10;
+        arraySum3(arr, n, sum);
     }
 
     public static int arraySum(int[] A, int n, int sum){
@@ -75,5 +80,30 @@ public class FindSubarrayWithGivenSum {
 
         System.out.println("No subarray found");
         return 0;
+    }
+
+    public static void arraySum3(int[] arr, int n, int sum){
+        int curr_sum = 0, end =0;
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i=0; i<n; i++){
+
+            curr_sum += arr[i];
+
+            if (curr_sum == sum){
+                System.out.println("Sum found bw 0 and "+i);
+                return;
+            }
+
+            if (map.containsKey(curr_sum - sum)){
+                int index = map.get(curr_sum - sum)+1;
+                System.out.println("Sum found bw "+index+ " and "+i);
+                return;
+            }
+
+            map.put(curr_sum, i);
+        }
+
+        System.out.println("No subarray found");
     }
 }

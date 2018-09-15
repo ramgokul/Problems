@@ -25,7 +25,7 @@ public class FourElementsThatSumToAGivenValue {
         for (int i=0; i< arr.length-1; i++){
             for (int j=i+1; j<arr.length; j++){
                 sum = arr[i] + arr[j];
-                m.put(sum, new Pair<>(arr[i], arr[j]));
+                m.put(sum, new Pair<>(i, j));
             }
         }
 
@@ -33,14 +33,21 @@ public class FourElementsThatSumToAGivenValue {
             for (int j=i+1; j<arr.length; j++){
                 p_sum = x - (arr[i] + arr[j]);
 
-                if (m.containsKey(p_sum) && p_sum != arr[i] && p_sum != arr[j]){
-                    System.out.println(""+arr[i]+","+arr[j]+","+m.get(p_sum).getKey()+","+m.get(p_sum).getValue());
+                if (m.containsKey(p_sum)){
+
+                    Pair<Integer, Integer> p = m.get(p_sum);
+
+                    if (p.getKey() != i && p.getKey() != j && p.getValue() != i && p.getValue() != j){
+                        System.out.println(""+arr[i]+","+arr[j]+","+arr[p.getKey()]+","+arr[p.getValue()]);
+//                        return;
+                    }
+
                 }
 
             }
         }
 
-        System.out.println(m);
+//        System.out.println(m);
     }
 
 }
