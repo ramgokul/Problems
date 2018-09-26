@@ -1,6 +1,9 @@
 package problems.arrays.batch0;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class SortZeroesOnesTwos {
 
@@ -47,5 +50,33 @@ public class SortZeroesOnesTwos {
         }
 
         System.out.println(Arrays.toString(arr));
+
+//        sortValues(arr);
+    }
+
+    static void sortValues(int[] nums){
+        Map<Integer, Integer> map = new LinkedHashMap<>();
+
+        for (int n : nums){
+            map.put(n, map.getOrDefault(n, 0)+1);
+        }
+
+        System.out.println(map);
+
+        int count = -1;
+
+        for (Map.Entry<Integer, Integer> val : map.entrySet()){
+            int key = val.getKey();
+            int occurence = val.getValue();
+
+            while (occurence > 0){
+                count++;
+                nums[count] = key;
+                occurence--;
+            }
+
+        }
+
+        System.out.println(Arrays.toString(nums));
     }
 }

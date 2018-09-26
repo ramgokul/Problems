@@ -1,5 +1,10 @@
 package problems.arrays.batch0;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class CommonElementsInThreeSortedArrays {
 
      /*
@@ -40,5 +45,24 @@ public class CommonElementsInThreeSortedArrays {
             }
         }
 
+    }
+
+    static void commonELementsIn3Arrays(int[] nums1, int[] nums2, int[] nums3){
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int n : nums1){
+            map.put(n, map.getOrDefault(n, 0)+1);
+        }
+
+        for (int n :nums2){
+            map.put(n, map.getOrDefault(n, 0)+1);
+        }
+
+        for (int n :nums3){
+            map.put(n, map.getOrDefault(n, 0)+1);
+        }
+
+        List list = map.entrySet().stream().filter(x->x.getValue()==3).map(x->x.getKey()).collect(Collectors.toList());
+        System.out.println(list);
     }
 }

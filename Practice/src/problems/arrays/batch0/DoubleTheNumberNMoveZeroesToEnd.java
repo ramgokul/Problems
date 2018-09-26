@@ -4,7 +4,10 @@ import java.util.Arrays;
 
 public class DoubleTheNumberNMoveZeroesToEnd {
     /*
-        Given an array of integers of size n. Assume ‘0’ as invalid number and all other as valid number. Convert the array in such a way that if next valid number is same as current number, double its value and replace the next number with 0. After the modification, rearrange the array such that all 0’s are shifted to the end.
+        Given an array of integers of size n. Assume ‘0’ as invalid number and all other as valid number.
+        Convert the array in such a way that if next valid number is same as current number,
+        double its value and replace the next number with 0. After the modification,
+         rearrange the array such that all 0’s are shifted to the end.
 
         Examples:
 
@@ -54,7 +57,7 @@ public class DoubleTheNumberNMoveZeroesToEnd {
 
         for (int i=0; i<nums.length-1; i++){
 
-            if ((nums[i] !=0) && (nums[i] == nums[i+1])){
+            if ((nums[i] !=0 && nums[i+1]!=0) && (nums[i] == nums[i+1])){
                 nums[i] = 2 * nums[i];
                 nums[i+1] = 0;
                 i+= 1;
