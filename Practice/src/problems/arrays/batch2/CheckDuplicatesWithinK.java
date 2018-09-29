@@ -5,7 +5,9 @@ import java.util.Set;
 
 public class CheckDuplicatesWithinK {
     /*
-        Given an unsorted array that may contain duplicates. Also given a number k which is smaller than size of array. Write a function that returns true if array contains duplicates within k distance.
+        Given an unsorted array that may contain duplicates.
+        Also given a number k which is smaller than size of array.
+        Write a function that returns true if array contains duplicates within k distance.
 
         Examples:
 
@@ -43,7 +45,7 @@ public class CheckDuplicatesWithinK {
     }
 
     public static void main(String[] args) {
-        int arr[] = {10, 5, 3, 4, 3, 5, 6};
+        int arr[] = {1, 2, 3, 4, 1, 2, 3, 4};
         check_duplicates(arr, 3);
     }
 }

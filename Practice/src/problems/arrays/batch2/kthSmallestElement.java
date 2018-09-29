@@ -15,7 +15,7 @@ public class kthSmallestElement {
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
 
-        System.out.println(""+k+ "th largest element : "+ arr[k-1]);
+        System.out.println(""+k+ "th smallest element : "+ arr[k-1]);
         System.out.println(""+k+ "th largest element : "+ arr[arr.length-k]);
 //        for (int i=0; i<=k-1; i++){
 //            System.out.print(arr[i]+" ");
