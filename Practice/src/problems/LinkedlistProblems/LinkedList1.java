@@ -298,6 +298,7 @@ public class LinkedList1 {
         printList();
     }
 
+    /* For a sorted linked list */
     public void removeDuplicates(){
         Node current = head;
         Node next_next;
@@ -311,6 +312,7 @@ public class LinkedList1 {
         }
     }
 
+    /* For a un-sorted linked list */
     public void removeDuplicates2(){
         Node current = head;
         Node previous = null;
@@ -331,6 +333,8 @@ public class LinkedList1 {
             current = current.next;
         }
     }
+
+
 
     public void deleteAlternateNodes(){
         Node current  = head, next_next;

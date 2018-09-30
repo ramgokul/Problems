@@ -1,5 +1,13 @@
 package problems.LinkedlistProblems.doubly_linkedlist;
 
+
+import javafx.util.Pair;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class DLL {
 
     static Node head;
@@ -102,6 +110,80 @@ public class DLL {
         }
     }
 
+    void findPairsWithGivenSum(Node node, int sum){
+        Node current = node;
+        Set<Integer> map = new HashSet<>();
+
+        while (current != null){
+
+            if (map.contains(sum - current.data)){
+                System.out.println("Pairs found --> ("+current.data+","+(sum-current.data)+")");
+            }
+
+            map.add(current.data);
+            current = current.next;
+        }
+    }
+
+    void findEvenOrOdd(Node node){
+        Node current = node;
+
+        while (current.next != null && current.next.next != null){
+            current = current.next.next;
+        }
+        System.out.println(current.data);
+        Boolean b = (current.next == null);
+        System.out.println("Is it a odd length linked list : "+b);
+    }
+
+    void findTriplets(Node node, int sum){
+        Set<Integer> map = new HashSet<>();
+
+        for (Node ptr1 = node; ptr1 != null; ptr1 = ptr1.next){
+            for (Node ptr2 = ptr1.next; ptr2 != null; ptr2 = ptr2.next){
+                int total = ptr1.data + ptr2.data;
+                int diff = sum - total;
+
+                if (map.contains(sum - total) && diff != ptr1.data && diff != ptr2.data){
+                    System.out.println("("+(sum-total)+","+ptr1.data+ ","+ptr2.data+")");
+                }
+                map.add(ptr2.data);
+            }
+        }
+
+//        System.out.println(map);
+    }
+
+    /* For a sorted linked list */
+    void removeDuplicates(Node node){
+        Node current = node, prev = null;
+
+        while (current.next != null){
+            if (current.data == current.next.data){
+                deleteNode(current.next);
+            }else {
+                current = current.next;
+            }
+        }
+
+    }
+
+    void removeDuplicatesFromUnsortedLinkedList(Node node){
+        Node current = node;
+        Set<Integer> set = new HashSet<>();
+
+        while (current != null){
+            int element = current.data;
+
+            if (!set.contains(element)){
+                set.add(element);
+            }else {
+                deleteNode(current);
+            }
+            current = current.next;
+        }
+    }
+
 
     void printList(Node node){
         while (node != null){
@@ -112,16 +194,37 @@ public class DLL {
 
     public static void main(String[] args) {
         DLL dll = new DLL();
-        dll.push(7);
+//        dll.push(12);
+//        dll.push(12);
+//        dll.push(10);
+//        dll.push(8);
+//        dll.push(8);
+//        dll.push(6);
+//        dll.push(4);
+//        dll.push(4);
+//        dll.push(4);
+//        dll.push(4);
+
+          dll.push(12);
+          dll.push(12);
+          dll.push(10);
+          dll.push(4);
+          dll.push(8);
+          dll.push(4);
+          dll.push(6);
+        dll.push(4);
+        dll.push(4);
         dll.push(8);
-        dll.insertAfter(dll.head, 9);
-        dll.insertAtEnd(dll.head, 10);
-        dll.insertBefore(dll.head.next.next, 6);
+        dll.removeDuplicatesFromUnsortedLinkedList(dll.head);
 //        dll.deleteNode(dll.head.next.next.next.next);
         dll.printList(dll.head);
-
-        dll.reverse(dll.head);
-        System.out.println();
-        dll.printList(dll.head);
+//        dll.removeDuplicates(dll.head);
+//        dll.printList(dll.head);
+//        dll.findTriplets(dll.head, 17);
+//        dll.findPairsWithGivenSum(dll.head, 13);
+//        dll.findEvenOrOdd(dll.head);
+//        dll.reverse(dll.head);
+//        System.out.println();
+//        dll.printList(dll.head);
     }
 }
