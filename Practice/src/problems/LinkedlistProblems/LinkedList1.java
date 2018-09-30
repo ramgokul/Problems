@@ -340,7 +340,7 @@ public class LinkedList1 {
         Node current  = head, next_next;
 //        int count = 0;
 
-        while (current != null){
+        while (current!= null && current != null){
             next_next = current.next.next;
 
 //            if (count%2 == 0){
