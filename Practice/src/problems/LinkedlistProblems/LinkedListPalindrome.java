@@ -53,11 +53,14 @@ public class LinkedListPalindrome {
 
         while (true){
             q = q.next.next;
-            if (q.next == null){
-                 new_s = p.next.next;
+
+            if (q != null && q.next == null){
+                new_s = p.next.next;
                 break;
-            }else if (q == null){
-                 new_s = p.next;
+            }
+
+            if (q == null){
+                new_s = p.next;
                 break;
             }
             p = p.next;

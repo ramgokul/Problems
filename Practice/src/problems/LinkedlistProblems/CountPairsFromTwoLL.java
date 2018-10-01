@@ -5,7 +5,8 @@ import java.util.Set;
 
 public class CountPairsFromTwoLL {
     /*
-            Given two linked lists(can be sorted or unsorted) of size n1 and n2 of distinct elements. Given a value x. The problem is to count all pairs from both lists whose sum is equal to the given value x.
+            Given two linked lists(can be sorted or unsorted) of size n1 and n2 of distinct elements.
+            Given a value x. The problem is to count all pairs from both lists whose sum is equal to the given value x.
 
             Note: The pair has an element from each linked list.
 
