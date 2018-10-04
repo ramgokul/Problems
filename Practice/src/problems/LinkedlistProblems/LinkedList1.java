@@ -460,7 +460,7 @@ public class LinkedList1 {
 
         slow.next = null;
 
-        Node node3 = reverse(node2);
+        Node node3 = reverseLinkedList(node2);
 
         Node dummy = new Node(0);
         Node current = dummy;
