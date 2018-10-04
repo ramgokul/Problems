@@ -427,6 +427,63 @@ public class LinkedList1 {
         return newhead;
     }
 
+    /*
+        Given a singly linked list L0 -> L1 -> … -> Ln-1 -> Ln. Rearrange the nodes in the list so that the new formed list is : L0 -> Ln -> L1 -> Ln-1 -> L2 -> Ln-2 …
+        You are required to do this in-place without altering the nodes’ values.
+        Exam
+        ples:
+
+        Input:  1 -> 2 -> 3 -> 4
+        Output: 1 -> 4 -> 2 -> 3
+
+        Input:  1 -> 2 -> 3 -> 4 -> 5
+        Output: 1 -> 5 -> 2 -> 4 -> 3
+
+        Efficient Solution:
+
+        1) Find the middle point using tortoise and hare method.
+        2) Split the linked list into two halves using found middle point in step 1.
+        3) Reverse the second half.
+        4) Do alternate merge of first and second halves.
+     */
+
+    void reArrangeALinkedListInPlace(Node node){
+        Node slow = node, fast = slow;
+
+        while (slow != null && fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node node1 = node;
+        Node node2 = slow.next;
+
+        slow.next = null;
+
+        Node node3 = reverse(node2);
+
+        Node dummy = new Node(0);
+        Node current = dummy;
+
+        while (node1 != null || node3 != null){
+
+            if (node1 != null){
+                current.next = node1;
+                current = current.next;
+                node1 = node1.next;
+            }
+
+            if (node3 != null){
+                current.next = node3;
+                current = current.next;
+                node3 = node3.next;
+            }
+        }
+
+        dummy = dummy.next;
+
+    }
+
     public void printList(){
         Node n = head;
 
