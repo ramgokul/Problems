@@ -7,11 +7,11 @@ public class rough {
 
     public static void main(String[] args) {
         String s = "ramnath";
-        char[] c = s.toCharArray();
-        Arrays.sort(c);
+        char[] c = new char[s.length()-1];
+        c[5] = 'a';
+
         System.out.println(c);
-        String s1 = new String(c);
-        System.out.println(s1.hashCode());
+
 
 
     }
