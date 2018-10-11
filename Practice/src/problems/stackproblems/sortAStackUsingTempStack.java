@@ -13,6 +13,8 @@ public class sortAStackUsingTempStack {
         input.add(92);
         input.add(23);
 
+        System.out.println("Top : "+input.peek());
+
         Stack<Integer> tmpStack= new Stack<>();
 
         while (!input.isEmpty()){

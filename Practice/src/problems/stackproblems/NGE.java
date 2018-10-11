@@ -21,7 +21,7 @@ public class NGE {
                     if (stack.isEmpty()){
                         break;
                     }
-                    stack.pop();
+                    element = stack.pop();
                 }
 
                 if (element > next){

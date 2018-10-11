@@ -15,6 +15,8 @@ public class DeleteMiddleOfStack {
         s.push(2);
         s.push(1);
 
+
+
         System.out.println("Input : "+s);
         System.out.println("Top1 : "+s.peek());
 //        deleteMidElement(s, s.size(), 0);
