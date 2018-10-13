@@ -1,7 +1,9 @@
 package problems.arrays.batch6;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SortArrayAccorAbsoluteDiff {
 
@@ -15,7 +17,8 @@ public class SortArrayAccorAbsoluteDiff {
             map.put(a, Math.abs(k-a));
         }
 
-        map.entrySet().stream().sorted(Map.Entry.<Integer,Integer>comparingByValue()).forEach(System.out::println);
+        List<Integer> list = map.entrySet().stream().sorted(Map.Entry.comparingByValue()).map(x -> x.getKey()).collect(Collectors.toList());
+        System.out.println(list);
     }
 
 }
