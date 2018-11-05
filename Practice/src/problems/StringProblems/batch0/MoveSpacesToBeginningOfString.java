@@ -1,27 +1,33 @@
 package problems.StringProblems.batch0;
 
+
 import java.util.Arrays;
 
 public class MoveSpacesToBeginningOfString {
 
     public static void main(String[] args) {
         String str = "geeks for geeks";
-        int counter = -1;
+        move_spaces2(str);
+    }
 
-        char[] indChars = str.toCharArray();
+    static void move_spaces2(String s){
+        StringBuilder temp = new StringBuilder();
+        int number_of_spaces = 0;
 
-        for (int i=0; i<str.length(); i++){
-            char element = str.charAt(i);
-
-            if (element == ' '){
-                counter++;
-                char temp = indChars[counter];
-                indChars[counter] = indChars[i];
-                indChars[i] = temp;
+        for (char c : s.toCharArray()){
+            if (c != ' '){
+                temp.append(c);
             }
-
         }
 
-        System.out.println(Arrays.toString(indChars));
+        StringBuilder temp2 = new StringBuilder();
+        number_of_spaces = s.length() - temp.length();
+        System.out.println("Number of spaces : "+number_of_spaces);
+
+        for (int i=0; i<number_of_spaces; i++){
+            temp2.append(" ");
+        }
+
+        System.out.println(temp2.toString() + temp.toString());
     }
 }
