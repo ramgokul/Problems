@@ -4,7 +4,7 @@ public class SearchElementInSortedArray {
 
     public static void main(String[] args) {
         int[] nums = {10,22,33,44,78};
-        System.out.println(returnIndex(nums, 33));
+        System.out.println(returnIndex(nums, 44));
 
     }
 
